@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar with playlist -->
+        <div class="sidebar">
+            <div class="nav-links">
+                <div class="logo">
+                    <h2>Spotify Clone</h2>
+                </div>
+                <ul>
+                    <li><i class="fas fa-home"></i> Home</li>
+                    <li><i class="fas fa-search"></i> Search</li>
+                    <li><i class="fas fa-book"></i> Your Library</li>
+                </ul>
+                <button id="add-song-btn" class="add-song-btn">
+                    <i class="fas fa-plus"></i> Add Song
+                </button>
+            </div>
+
+            <!-- Add Song Modal -->
+            <div id="add-song-modal" class="modal">
+                <div class="modal-content">
+                    <h2>Add New Song</h2>
+                    <form id="add-song-form">
+                        <div class="form-group">
+                            <label for="song-title">Title:</label>
+                            <input type="text" id="song-title-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="song-artist">Artist:</label>
+                            <input type="text" id="song-artist-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="song-file">Audio File:</label>
+                            <input type="file" id="song-file-input" accept="audio/*" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="song-cover">Cover Image:</label>
+                            <input type="file" id="song-cover-input" accept="image/*" required>
+                        </div>
+                        <div class="modal-buttons">
+                            <button type="submit">Add Song</button>
+                            <button type="button" id="close-modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="playlist" id="playlist">
+                <!-- Playlist items will be added here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="main-content">
+            <div class="now-playing">
+                <div class="song-details">
+                    <img id="cover-art" src="https://images.unsplash.com/photo-1611339555312-e607c8352fd7?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=MnwxfDB8MXxyYW5kb218MHx8bXVzaWN8fHx8fHwxNjk8MjM5MDEw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300" alt="Album Cover">
+                    <h2 id="song-title">No song playing</h2>
+                    <p id="song-artist">Select a song to play</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Player controls -->
+    <div class="player">
+        <div class="player-controls">
+            <button id="prev-btn" class="control-btn">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button id="play-btn" class="control-btn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="next-btn" class="control-btn">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+        <div class="progress-area">
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <div class="time">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+        <div class="volume-control">
+            <i class="fas fa-volume-up" id="volume-icon"></i>
+            <input type="range" id="volume-slider" min="0" max="100" value="100">
+        </div>
+    </div>
+
+    <audio id="audio-player"></audio>
+    <script src="app.js"></script>
+</body>
+</html>
